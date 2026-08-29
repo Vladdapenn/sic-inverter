@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Inverter Power Components")(type "KiCad")(uri "/Users/vladroiban/Documents/Inverter/KiCAD/Component Library/Library/Inverter Power Components.kicad_sym")(options "")(descr ""))
+)
