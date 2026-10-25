@@ -1,0 +1,459 @@
+******************************************************************
+*
+* 		TDK Electronics Components, S.A.U.
+* 		Aluminium and Film Capacitors Business Group
+* 		CAP FILM T R&D ADG
+* 		29590 Málaga
+* 		Severo Ochoa 66-68
+*
+*		Fernando Aunon
+* 		CAP FILM T R&D ADG
+*		Tel  
+*		Email 
+*
+*
+******************************************************************
+* Bitte lesen Sie die Hinweise in der Datei "Liesmich.txt" .
+* Please read the hints in "Readme.txt" .
+******************************************************************
+*
+******************************************************************
+* SPICE-Simulationsdaten für Folienkondensatoren für DC Anwendungen / High Power und Energiedichte Zwischenkreis
+* SPICE simulation data for Film Capacitors for DC application / DC Link High Energy TDK_B25654A_LANG_EN Power Density
+* 	TDK_B25654A
+*
+******************************************************************
+*
+******************************************************************
+* Library für/for LTspice (Linear Technologies)
+* 
+* Libraries für weitere Spice-Versionen sind verfügbar (ANSYS,
+* HSPICE, PSpice)
+*
+* Libraries for further Simulation Programs available (ANSYS, 
+* HSPICE, PSpice)
+*	
+******************************************************************
+*
+.subckt TDK_B25654A_BASE1 A1 A2  
++	Rp11_a=6.3999 Cp11_a=0.020114 Rp21_a=0.00052463 Cp21_a=1.13 
++	Rp31_a=9.481e-05 Cp31_a=3.6501 Rp41_a=5.1262e-05 Cp41_a=0.021322 
++	Rp51_a=0.0012725 Cp51_a=0.0083741 RC51_a=0.010564 Rp61_a=0.00048554 
++	Lp61_a=3.2899e-09 Rp71_a=0.044625 Lp71_a=1e-08 Cs1_a=0.00020202 
++	Ls1_a=1.4744e-10 Rp1_a=136000000 
+Rp1_b	A1 200 	{Rp11_a}  
+Cp1_b	A1 200	 {Cp11_a} Rpar=0 Rser=0
+Rp2_b	200 300 	{Rp21_a}  
+Cp2_b	200 300	 {Cp21_a} Rpar=0 Rser=0
+Rp3_b	300 400 	{Rp31_a}  
+Cp3_b	300 400	 {Cp31_a} Rpar=0 Rser=0
+Rp4_b	400 500 	{Rp41_a}  
+Cp4_b	400 500	 {Cp41_a} Rpar=0 Rser=0
+Rp5_b	500 600 	{Rp51_a}  
+Cp5_b	500 550	 {Cp51_a} Rpar=0 Rser=0
+RC5_b	550 600 	{RC51_a}  
+Rp6_b	600 700 	{Rp61_a}  
+Lp6_b	600 700	 {Lp61_a} Rpar=0 Rser=0
+Rp7_b	700 800 	{Rp71_a}  
+Lp7_b	700 800	 {Lp71_a} Rpar=0 Rser=0
+Cs_b	800 900	 {Cs1_a} Rpar=0 Rser=0
+Ls_b	900 A2	 {Ls1_a} Rpar=0 Rser=0
+Rp_b	A1 A2 	{Rp1_a}  
+.ENDS
+
+*
+* B25654A5207K001 Film Capacitor for DC application / DC Link High Energy and Power Density (200 uF +-10%)
+*
+.subckt B25654A5207K001 A1 A2   
++	Rp11=6.3999 Cp11=0.020114 Rp21=0.00052463 Cp21=1.13 
++	Rp31=9.481e-05 Cp31=3.6501 Rp41=5.1262e-05 Cp41=0.021322 
++	Rp51=0.0012725 Cp51=0.0083741 RC51=0.010564 Rp61=0.00048554 
++	Lp61=3.2899e-09 Rp71=0.044625 Lp71=1e-08 Cs1=0.00020202 
++	Ls1=1.4744e-10 Rp1=136000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A5207K002 Film Capacitor for DC application / DC Link High Energy and Power Density (200 uF +-10%)
+*
+.subckt B25654A5207K002 A1 A2   
++	Rp11=8.4737 Cp11=0.015729 Rp21=0.00036563 Cp21=1.9114 
++	Rp31=3.1981e-05 Cp31=9.6456 Rp41=5.5291e-05 Cp41=1.0322e-09 
++	Rp51=0.0013794 Cp51=0.0073701 RC51=0.011332 Rp61=0.00065972 
++	Lp61=3.6462e-09 Rp71=0.051129 Lp71=1.134e-08 Cs1=0.00020258 
++	Ls1=1.2046e-09 Rp1=136000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A5277K001 Film Capacitor for DC application / DC Link High Energy and Power Density (270 uF +-10%)
+*
+.subckt B25654A5277K001 A1 A2   
++	Rp11=4.9416 Cp11=0.026435 Rp21=0.00029038 Cp21=2.1925 
++	Rp31=6.1179e-05 Cp31=4.2238 Rp41=4.3302e-05 Cp41=0.056149 
++	Rp51=0.0010641 Cp51=0.0086872 RC51=0.0084245 Rp61=0.00051863 
++	Lp61=3.0518e-09 Rp71=0.040994 Lp71=9.35e-09 Cs1=0.00027279 
++	Ls1=1.8078e-11 Rp1=129000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A5277K002 Film Capacitor for DC application / DC Link High Energy and Power Density (270 uF +-10%)
+*
+.subckt B25654A5277K002 A1 A2   
++	Rp11=3.6128 Cp11=0.039108 Rp21=0.00032881 Cp21=3.2569 
++	Rp31=0.00016073 Cp31=4.5272 Rp41=0.00019461 Cp41=1.7782 
++	Rp51=0.0011408 Cp51=0.024878 RC51=0.0080575 Rp61=0.0001 
++	Lp61=1.1012e-07 Rp71=0.022405 Lp71=8.784e-09 Cs1=0.00027189 
++	Ls1=6.3471e-09 Rp1=129000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A6117K001 Film Capacitor for DC application / DC Link High Energy and Power Density (110 uF +-10%)
+*
+.subckt B25654A6117K001 A1 A2   
++	Rp11=12.2453 Cp11=0.010783 Rp21=0.00080971 Cp21=0.74417 
++	Rp31=0.00027917 Cp31=0.9209 Rp41=5.3444e-05 Cp41=0.36284 
++	Rp51=0.00086088 Cp51=0.0080724 RC51=0.0057405 Rp61=0.00034208 
++	Lp61=2.5577e-09 Rp71=0.078919 Lp71=1.1e-08 Cs1=0.00011624 
++	Ls1=1.1867e-10 Rp1=157000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A6117K002 Film Capacitor for DC application / DC Link High Energy and Power Density (110 uF +-10%)
+*
+.subckt B25654A6117K002 A1 A2   
++	Rp11=15.9318 Cp11=0.0089418 Rp21=0.0006312 Cp21=1.0325 
++	Rp31=0.00022899 Cp31=0.98254 Rp41=5.2676e-05 Cp41=0.2623 
++	Rp51=0.00096469 Cp51=0.0070881 RC51=0.0067568 Rp61=0.00053255 
++	Lp61=1.9257e-09 Rp71=0.089902 Lp71=1.242e-08 Cs1=0.0001165 
++	Ls1=1.3315e-09 Rp1=157000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A6137K001 Film Capacitor for DC application / DC Link High Energy and Power Density (130 uF +-10%)
+*
+.subckt B25654A6137K001 A1 A2   
++	Rp11=11.5781 Cp11=0.011518 Rp21=0.00060273 Cp21=1.0563 
++	Rp31=0.00019832 Cp31=1.212 Rp41=5.8816e-05 Cp41=0.14818 
++	Rp51=0.0012852 Cp51=0.0059586 RC51=0.0092404 Rp61=0.00048554 
++	Lp61=3.2899e-09 Rp71=0.018237 Lp71=6.5154e-09 Cs1=0.00013149 
++	Ls1=6.077e-09 Rp1=136000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A6137K002 Film Capacitor for DC application / DC Link High Energy and Power Density (130 uF +-10%)
+*
+.subckt B25654A6137K002 A1 A2   
++	Rp11=12.6269 Cp11=0.010665 Rp21=0.00061885 Cp21=1.0367 
++	Rp31=0.00019787 Cp31=1.2128 Rp41=5.8816e-05 Cp41=0.14818 
++	Rp51=0.0012852 Cp51=0.0059586 RC51=0.0092404 Rp61=0.00064745 
++	Lp61=3.4845e-09 Rp71=0.018696 Lp71=7.1735e-09 Cs1=0.00013161 
++	Ls1=8.4182e-09 Rp1=134000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A6177K001 Film Capacitor for DC application / DC Link High Energy and Power Density (170 uF +-10%)
+*
+.subckt B25654A6177K001 A1 A2   
++	Rp11=8.1675 Cp11=0.016064 Rp21=0.00056635 Cp21=1.0682 
++	Rp31=0.00010967 Cp31=3.0793 Rp41=4.3797e-05 Cp41=0.080894 
++	Rp51=0.0010621 Cp51=0.0092884 RC51=0.0086173 Rp61=0.00051863 
++	Lp61=3.0518e-09 Rp71=0.065927 Lp71=1.14e-08 Cs1=0.00017693 
++	Ls1=2.8118e-11 Rp1=80000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A6177K002 Film Capacitor for DC application / DC Link High Energy and Power Density (170 uF +-10%)
+*
+.subckt B25654A6177K002 A1 A2   
++	Rp11=8.1675 Cp11=0.016064 Rp21=0.00056635 Cp21=1.0682 
++	Rp31=0.00010967 Cp31=3.0793 Rp41=4.3797e-05 Cp41=0.080894 
++	Rp51=0.0010621 Cp51=0.0092884 RC51=0.0086173 Rp61=0.000712 
++	Lp61=3.3239e-09 Rp71=0.072059 Lp71=1.296e-08 Cs1=0.00017693 
++	Ls1=1.2917e-09 Rp1=80000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A8107K001 Film Capacitor for DC application / DC Link High Energy and Power Density (100 uF +-10%)
+*
+.subckt B25654A8107K001 A1 A2   
++	Rp11=14.7996 Cp11=0.0089363 Rp21=0.00087711 Cp21=0.71438 
++	Rp31=0.0002317 Cp31=1.1825 Rp41=6.6097e-05 Cp41=0.10549 
++	Rp51=0.0014901 Cp51=0.0055827 RC51=0.011653 Rp61=0.00046063 
++	Lp61=2.3885e-09 Rp71=0.019645 Lp71=6.3817e-09 Cs1=0.00010113 
++	Ls1=6.6216e-09 Rp1=227000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A8107K002 Film Capacitor for DC application / DC Link High Energy and Power Density (100 uF +-10%)
+*
+.subckt B25654A8107K002 A1 A2   
++	Rp11=12.8011 Cp11=0.010173 Rp21=0.0010513 Cp21=0.54982 
++	Rp31=0.00027752 Cp31=1.1229 Rp41=6.5216e-05 Cp41=0.10579 
++	Rp51=0.0014928 Cp51=0.0057862 RC51=0.011453 Rp61=0.00064843 
++	Lp61=3.7696e-09 Rp71=0.031089 Lp71=8.5942e-09 Cs1=0.000101 
++	Ls1=7.4557e-09 Rp1=227000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A8137K001 Film Capacitor for DC application / DC Link High Energy and Power Density (130 uF +-10%)
+*
+.subckt B25654A8137K001 A1 A2   
++	Rp11=10.6942 Cp11=0.012395 Rp21=0.00058266 Cp21=1.0928 
++	Rp31=0.00020662 Cp31=1.1477 Rp41=5.7349e-05 Cp41=0.18393 
++	Rp51=0.0011796 Cp51=0.006303 RC51=0.0083123 Rp61=0.00051282 
++	Lp61=3.1838e-09 Rp71=0.080746 Lp71=1.18e-08 Cs1=0.00013649 
++	Ls1=4.4731e-11 Rp1=213000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A8137K002 Film Capacitor for DC application / DC Link High Energy and Power Density (130 uF +-10%)
+*
+.subckt B25654A8137K002 A1 A2   
++	Rp11=9.5343 Cp11=0.013613 Rp21=0.00081215 Cp21=0.711 
++	Rp31=0.00013976 Cp31=2.9464 Rp41=5.1505e-05 Cp41=0.031387 
++	Rp51=0.0012716 Cp51=0.0086562 RC51=0.010652 Rp61=0.00048554 
++	Lp61=3.2899e-09 Rp71=0.099355 Lp71=1.48e-08 Cs1=0.00013636 
++	Ls1=6.7062e-11 Rp1=213000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A8806K001 Film Capacitor for DC application / DC Link High Energy and Power Density (80 uF +-10%)
+*
+.subckt B25654A8806K001 A1 A2   
++	Rp11=18.2267 Cp11=0.0073232 Rp21=0.0010933 Cp21=0.5624 
++	Rp31=0.00040902 Cp31=0.5951 Rp41=8.4942e-05 Cp41=0.30211 
++	Rp51=0.0010756 Cp51=0.0059352 RC51=0.0071121 Rp61=0.00029247 
++	Lp61=1.6794e-09 Rp71=0.021733 Lp71=5.3705e-09 Cs1=8.0886e-05 
++	Ls1=5.556e-09 Rp1=209000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A8806K002 Film Capacitor for DC application / DC Link High Energy and Power Density (80 uF +-10%)
+*
+.subckt B25654A8806K002 A1 A2   
++	Rp11=18.2087 Cp11=0.0073302 Rp21=0.0010992 Cp21=0.55803 
++	Rp31=0.00039389 Cp31=0.63232 Rp41=9.1898e-05 Cp41=0.34196 
++	Rp51=0.0010798 Cp51=0.0060055 RC51=0.0067761 Rp61=0.0003462 
++	Lp61=2.8772e-09 Rp71=0.020114 Lp71=5.8908e-09 Cs1=8.0885e-05 
++	Ls1=7.0426e-09 Rp1=209000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A9117K001 Film Capacitor for DC application / DC Link High Energy and Power Density (110 uF +-10%)
+*
+.subckt B25654A9117K001 A1 A2   
++	Rp11=13.0421 Cp11=0.010096 Rp21=0.00084013 Cp21=0.72717 
++	Rp31=0.00024819 Cp31=1.0986 Rp41=5.8319e-05 Cp41=0.1444 
++	Rp51=0.0012833 Cp51=0.0062078 RC51=0.0094337 Rp61=0.00050844 
++	Lp61=3.3226e-09 Rp71=0.081573 Lp71=1.15e-08 Cs1=0.00011122 
++	Ls1=9.6378e-11 Rp1=317000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A9117K002 Film Capacitor for DC application / DC Link High Energy and Power Density (110 uF +-10%)
+*
+.subckt B25654A9117K002 A1 A2   
++	Rp11=12.2902 Cp11=0.010712 Rp21=0.00082604 Cp21=0.7333 
++	Rp31=0.00023898 Cp31=1.1638 Rp41=6.1737e-05 Cp41=0.12351 
++	Rp51=0.0013887 Cp51=0.0058999 RC51=0.010377 Rp61=0.00048425 
++	Lp61=3.4402e-09 Rp71=0.069191 Lp71=1.1831e-08 Cs1=0.00011114 
++	Ls1=2.6979e-09 Rp1=317000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A9606K001 Film Capacitor for DC application / DC Link High Energy and Power Density (60 uF +-10%)
+*
+.subckt B25654A9606K001 A1 A2   
++	Rp11=23.6937 Cp11=0.0055925 Rp21=0.0013569 Cp21=0.46307 
++	Rp31=0.00041419 Cp31=0.62962 Rp41=0.00035026 Cp41=0.24673 
++	Rp51=0.0010922 Cp51=0.0051268 RC51=0.0055841 Rp61=0.0003857 
++	Lp61=2.9039e-09 Rp71=0.098331 Lp71=1.05e-08 Cs1=6.0652e-05 
++	Ls1=1.6266e-10 Rp1=824000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A9606K002 Film Capacitor for DC application / DC Link High Energy and Power Density (60 uF +-10%)
+*
+.subckt B25654A9606K002 A1 A2   
++	Rp11=23.5983 Cp11=0.0056225 Rp21=0.001386 Cp21=0.4462 
++	Rp31=0.00050302 Cp31=0.4918 Rp41=0.00014773 Cp41=0.2998 
++	Rp51=0.0011871 Cp51=0.0050466 RC51=0.0073878 Rp61=0.00056548 
++	Lp61=2.1618e-09 Rp71=0.14139 Lp71=1.32e-08 Cs1=6.0649e-05 
++	Ls1=4.1228e-11 Rp1=824000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A9756K001 Film Capacitor for DC application / DC Link High Energy and Power Density (75 uF +-10%)
+*
+.subckt B25654A9756K001 A1 A2   
++	Rp11=17.2918 Cp11=0.0074687 Rp21=0.0013176 Cp21=0.44727 
++	Rp31=0.00042438 Cp31=0.64193 Rp41=8.0352e-05 Cp41=0.14036 
++	Rp51=0.0016079 Cp51=0.0046988 RC51=0.011414 Rp61=0.00050328 
++	Lp61=3.7775e-09 Rp71=0.062539 Lp71=1.0521e-08 Cs1=7.5763e-05 
++	Ls1=3.9909e-10 Rp1=409000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+
+*
+* B25654A9756K002 Film Capacitor for DC application / DC Link High Energy and Power Density (75 uF +-10%)
+*
+.subckt B25654A9756K002 A1 A2   
++	Rp11=19.8896 Cp11=0.0066981 Rp21=0.0011498 Cp21=0.54447 
++	Rp31=0.00036391 Cp31=0.70619 Rp41=8.3744e-05 Cp41=0.12712 
++	Rp51=0.0017147 Cp51=0.0044127 RC51=0.012204 Rp61=0.00048448 
++	Lp61=3.9263e-09 Rp71=0.025145 Lp71=7.6995e-09 Cs1=7.5851e-05 
++	Ls1=6.2174e-09 Rp1=409000000 
+X1 A1 A2 TDK_B25654A_BASE1  Rp11_a={Rp11} 
++	Cp11_a={Cp11} Rp21_a={Rp21} Cp21_a={Cp21} 
++	Rp31_a={Rp31} Cp31_a={Cp31} Rp41_a={Rp41} 
++	Cp41_a={Cp41} Rp51_a={Rp51} Cp51_a={Cp51} 
++	RC51_a={RC51} Rp61_a={Rp61} Lp61_a={Lp61} 
++	Rp71_a={Rp71} Lp71_a={Lp71} Cs1_a={Cs1} 
++	Ls1_a={Ls1} Rp1_a={Rp1} 
+.ENDS
+

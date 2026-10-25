@@ -1,0 +1,62 @@
+History for SPICE-Library for LTspice (Linear Technologies)
+for TDK Electronics AG : B58031.lib
+Version 2.3.1
+assembled on (November 2024)
+
+
+-----------------------------------------------------------------------
+Version 3.0
+-	All models are updated to the new format
+-	New format is compatible also with PSpice (tested) and other 
+	Spice Variants (not tested)
+- 	Numerical model instabilities for FA type models are solved
+
+
+-----------------------------------------------------------------------
+Version 2.3.1
+-	Bug in model for SMD Variant 900V type case size 2220 is fixed.
+
+-----------------------------------------------------------------------
+Version 2.3
+-	SMD Variant 900V type with case size 2220 is included into the 
+	model. 
+	
+-----------------------------------------------------------------------
+Version 2.2
+-	TD model is updated, so that the ESR dependency of DC-bias
+	and temperatue is included, as it was already implemented in the 
+ 	FD model.
+-	models for SP-type are removed, due to end of production.
+	If still needed, please use model V2.1.
+
+-----------------------------------------------------------------------
+Version 2.1
+-	model adapted to final 2220 SMD variat 
+- 	created separate model file for current and future SMD variants
+
+-----------------------------------------------------------------------
+Version 2.0
+-	model extended to all available voltage classes (500V, 700V 
+	and 900V)
+-	model extended to all available packages (LP, FA2, FA3, FA10
+	and SP) for all voltage classes 
+-	improved model for large signal behavior and temperature 
+	behavior added
+-	model for temperature und DCBias dependent ESR added
+
+-----------------------------------------------------------------------
+Version 1.35
+-	Simulation model optimized to be ground node independent
+
+-----------------------------------------------------------------------
+Version 1.30
+-	B58031I5105M002_TD for time domain added (.tran)
+	Automated detection of AC and DC based on
+	cut of frequency parameter fg and captemp
+-	B58031I5105M002_FD for frequency domain added (.ac)
+	Model for all operating points defined through the
+	parameters Vdc, Vaceff and captemp
+
+	DC-voltage range set from 0 to 600V
+	AC-voltage range set from 0.5 to 7.1V
+	Temperature range set from -50 to 150°C

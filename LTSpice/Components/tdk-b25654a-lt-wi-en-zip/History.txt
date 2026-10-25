@@ -1,0 +1,11 @@
+History for SPICE-Library for LTspice (Linear Technologies)
+for TDK Electronics AG : TDK_B25654A.lib
+Version 1.00
+assembled on (Mon Jul 15 08:19:06 CEST 2024)
+
+-----------------------------------------------------------------------
+Version 1.00
+-	library created
+-	B25654A series (xEVCAP) added (22 Components)
+
+-----------------------------------------------------------------------

@@ -1,0 +1,367 @@
+******************************************************************
+*
+* 		TDK Electronics
+* 		PPD Business Group
+* 		A-8530 Deutschlandsberg
+* 		Siemensstraﬂe 43
+*
+*		Andreas Lesch
+*       	PD PI AE/IE
+*		Tel  +43 (0) 676 8226 4991
+*		Email andreas.lesch@tdk-electronics.tdk.com
+*
+*
+******************************************************************
+* Please read the hints in "Readme.txt".
+******************************************************************
+*
+*
+* Library B5803x_500V_TD.sub
+* Version 3.0 ( Jul. 2026)
+*
+*
+******************************************************************
+*
+******************************************************************
+* Library for Linear Technologies LTspice
+*
+******************************************************************
+*
+*
+*
+
+
+
+
+
+***************************************************************************************************
+* LP 500V                                                                                         *
+***************************************************************************************************
+
+.subckt B58031I5105M062_1uF_LP_TD A1 A2
++ params: esr=4m, esl=2.5n, captemp=85, Vdc=0, fg=10
+
+.param ctemp={limit(captemp,-50,150)}
+
+.param kTemp={(((8.9327618384694+(-0.13925121326729+(0.00078032227731653-1.2400515923369E-6*ctemp)*ctemp)*ctemp)
++ +(-0.019869342032551+(0.0003845594568341+(4.1114559892308E-6-4.1018015228268E-8*ctemp)*ctemp)*ctemp)*limit(Vdc,0,600)
++ +(0.00028915422565848+(-1.764364879581E-6+(-5.8391684110952E-8+3.938630852853E-10*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**2)
++ +(-4.137712670883E-7+(7.9378286321372E-10+(9.9681486586663E-11-5.8695329536385E-13*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**3)
++ )/5.9198071239797)}
+
+.param AAFE1={47.137102909723+(0.27736662769875-0.0028147923392326*ctemp)*ctemp}
+.param AAFE2={(3.1632076714387+(0.017009870703669-0.00015014765932372*ctemp)*ctemp)}
+
+.param AFE1={207.90885785542+(1.4584398574322+0.0061258206142584*ctemp)*ctemp}
+.param AFE2={(16.021669202792+(-0.14294470435415-0.00085837275937345*ctemp)*ctemp)}
+
+.param SAFE1={159.73910600274+(-0.72687460119008+0.0047887679578151*ctemp)*ctemp}
+.param SAFE2={(-4.1452546912797+(0.11522786169165-0.00037270848336913*ctemp)*ctemp)}
+
+.param SFE1={640.24300445696+(2.992804293304+0.017597225814978*ctemp)*ctemp}
+.param SFE2={(31.683174228435+(-0.30538302826583-0.0020421880124899*ctemp)*ctemp)}
+
+.param SW1={437.45469580258+(-0.50718245356219-0.003428862694157*ctemp)*ctemp}
+.param SW2={(-7.1437187823878+(0.03360788819495+5.5514802141361E-5*ctemp)*ctemp)}
+
+.param d1={5.1449803878558E-7+(-9.3974535897098E-9+2.534072631867E-10*ctemp)*ctemp}
+.param d2={(-7.2464512505011E-8+(1.3235850126352E-9-3.5691163829113E-11*ctemp)*ctemp)}
+
+RIN A1 func1 1u
+R0 B1 func1 {100*kTemp}
+R1 func1 21 {30*kTemp}
+C1 21 B1 {25u/kTemp}
+R2 func1 31 {2*kTemp}
+C2 31 B1 {20u/kTemp}
+R3 func1 41 {150m*kTemp}
+C3 41 B1 {15u/kTemp}
+R4 func1 51 {20m*kTemp}
+C4 51 B1 {11u/kTemp}
+R5 func1 61 {limit(esr*kTemp,esr,500m)}
+C5 61 B1 {limit(10u/kTemp,1n,10u)}
+R6 mid B1 100Meg
+C6 B2 mid {1/(2*pi*fg*100Meg)}
+E_B1 101 A2 Value={V(B1,mid)*V(B1,mid)}
+R7 int 101 100Meg
+C7 A2 int {1/(2*pi*fg*10*100Meg)}
+E_B2 vaceff A2 Value={limit(Sqrt(V(int,A2)),0.5,7.1)}
+R8 vaceff A2 100Meg
+
+G_B3 B1 B2 Value={0.000001*1.005977844436332*(
++ 4*V(aafe)*exp(2*(V(udc)+V(sw))/V(safe))/(V(safe)*(exp(2*V(udc)/V(safe))+exp(2*V(sw)/V(safe)))**2)
++ +
++ 4*V(afe)*exp(2*V(udc)/V(sfe))/(V(sfe)*(1+exp(2*V(udc)/V(sfe)))**2)
++ +
++ V(d)
++ )*ddt(V(B1,B2))}
+
+L1 B2 func2 {esl} Rser=0
+ROUT func2 A2 1u
+
+E_Udc udc 0 Value={limit(abs(V(mid,B2)),0,600)}
+E_Uac uac 0 Value={limit(V(vaceff,A2),0.5,7.1)}
+
+E_AAFE aafe 0 Value={AAFE1+V(uac)*AAFE2}
+E_AFE afe 0 Value={AFE1+V(uac)*AFE2}
+
+E_SAFE safe 0 Value={SAFE1+V(uac)*SAFE2}
+E_SFE sfe 0 Value={SFE1+V(uac)*SFE2}
+
+E_SW sw 0 Value={SW1+V(uac)*SW2}
+E_d d 0 Value={d1+V(uac)*d2}
+
+.ends
+
+
+
+
+
+***************************************************************************************************
+* FA2 500V                                                                                        *
+***************************************************************************************************
+
+
+.subckt B58035U5205M062_2uF_FA2_TD A1 A2
++ params: esr=4m, esl=2.5n, captemp=85, Vdc=0, fg=10, N=2, esr2=1u, esl2=0.45n
+
+.param ctemp={limit(captemp,-50,150)}
+
+.param kTemp={(((8.9327618384694+(-0.13925121326729+(0.00078032227731653-1.2400515923369E-6*ctemp)*ctemp)*ctemp)
++ +(-0.019869342032551+(0.0003845594568341+(4.1114559892308E-6-4.1018015228268E-8*ctemp)*ctemp)*ctemp)*limit(Vdc,0,600)
++ +(0.00028915422565848+(-1.764364879581E-6+(-5.8391684110952E-8+3.938630852853E-10*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**2)
++ +(-4.137712670883E-7+(7.9378286321372E-10+(9.9681486586663E-11-5.8695329536385E-13*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**3)
++ )/5.9198071239797)}
+
+.param AAFE1={47.137102909723+(0.27736662769875-0.0028147923392326*ctemp)*ctemp}
+.param AAFE2={(3.1632076714387+(0.017009870703669-0.00015014765932372*ctemp)*ctemp)}
+
+.param AFE1={207.90885785542+(1.4584398574322+0.0061258206142584*ctemp)*ctemp}
+.param AFE2={(16.021669202792+(-0.14294470435415-0.00085837275937345*ctemp)*ctemp)}
+
+.param SAFE1={159.73910600274+(-0.72687460119008+0.0047887679578151*ctemp)*ctemp}
+.param SAFE2={(-4.1452546912797+(0.11522786169165-0.00037270848336913*ctemp)*ctemp)}
+
+.param SFE1={640.24300445696+(2.992804293304+0.017597225814978*ctemp)*ctemp}
+.param SFE2={(31.683174228435+(-0.30538302826583-0.0020421880124899*ctemp)*ctemp)}
+
+.param SW1={437.45469580258+(-0.50718245356219-0.003428862694157*ctemp)*ctemp}
+.param SW2={(-7.1437187823878+(0.03360788819495+5.5514802141361E-5*ctemp)*ctemp)}
+
+.param d1={5.1449803878558E-7+(-9.3974535897098E-9+2.534072631867E-10*ctemp)*ctemp}
+.param d2={(-7.2464512505011E-8+(1.3235850126352E-9-3.5691163829113E-11*ctemp)*ctemp)}
+
+RIN A1 func1 {esr2}
+*LIN t1 func1 {esl2}
+R0 B1 func1 {100*kTemp}
+R1 func1 21 {30*kTemp}
+C1 21 B1 {15u/kTemp}
+R2 func1 31 {2.5*kTemp}
+C2 31 B1 {15u/kTemp}
+R3 func1 41 {60m*kTemp}
+C3 41 B1 {20u/kTemp}
+R4 func1 51 {9m*kTemp}
+C4 51 B1 {16u/kTemp}
+R5 func1 61 {limit(esr/N*kTemp,esr/N,500m)}
+C5 61 B1 {limit(12u/kTemp,1n,12u)}
+R6 mid B1 100Meg
+C6 B2 mid {1/(2*pi*fg*100Meg)}
+E_B1 101 A2 Value={V(B1,mid)*V(B1,mid)}
+R7 int 101 100Meg
+C7 A2 int {1/(2*pi*fg*10*100Meg)}
+E_B2 vaceff A2 Value={limit(Sqrt(V(int,A2)),0.5,7.1)}
+R8 vaceff A2 100Meg
+
+G_B3 B1 B2 Value={N*0.000001*1.005977844436332*(
++ 4*V(aafe)*exp(2*(V(udc)+V(sw))/V(safe))/(V(safe)*(exp(2*V(udc)/V(safe))+exp(2*V(sw)/V(safe)))**2)
++ +
++ 4*V(afe)*exp(2*V(udc)/V(sfe))/(V(sfe)*(1+exp(2*V(udc)/V(sfe)))**2)
++ +
++ V(d)
++ )*ddt(V(B1,B2))}
+
+L1 B2 func2 {esl/N+esl2} Rser=0
+ROUT func2 A2 1u
+
+E_Udc udc 0 Value={limit(abs(V(mid,B2)),0,600)}
+E_Uac uac 0 Value={limit(V(vaceff,A2),0.5,7.1)}
+
+E_AAFE aafe 0 Value={AAFE1+V(uac)*AAFE2}
+E_AFE afe 0 Value={AFE1+V(uac)*AFE2}
+
+E_SAFE safe 0 Value={SAFE1+V(uac)*SAFE2}
+E_SFE sfe 0 Value={SFE1+V(uac)*SFE2}
+
+E_SW sw 0 Value={SW1+V(uac)*SW2}
+E_d d 0 Value={d1+V(uac)*d2}
+
+.ends
+
+
+
+
+
+***************************************************************************************************
+* FA3 500V                                                                                        *
+***************************************************************************************************
+
+
+.subckt B58035U5305M062_3uF_FA3_TD A1 A2
++ params: esr=4m, esl=2.5n, captemp=85, Vdc=0, fg=10, N=3, esr2=1u, esl2=0.55n
+
+.param ctemp={limit(captemp,-50,150)}
+
+.param kTemp={(((8.9327618384694+(-0.13925121326729+(0.00078032227731653-1.2400515923369E-6*ctemp)*ctemp)*ctemp)
++ +(-0.019869342032551+(0.0003845594568341+(4.1114559892308E-6-4.1018015228268E-8*ctemp)*ctemp)*ctemp)*limit(Vdc,0,600)
++ +(0.00028915422565848+(-1.764364879581E-6+(-5.8391684110952E-8+3.938630852853E-10*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**2)
++ +(-4.137712670883E-7+(7.9378286321372E-10+(9.9681486586663E-11-5.8695329536385E-13*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**3)
++ )/5.9198071239797)}
+
+.param AAFE1={47.137102909723+(0.27736662769875-0.0028147923392326*ctemp)*ctemp}
+.param AAFE2={(3.1632076714387+(0.017009870703669-0.00015014765932372*ctemp)*ctemp)}
+
+.param AFE1={207.90885785542+(1.4584398574322+0.0061258206142584*ctemp)*ctemp}
+.param AFE2={(16.021669202792+(-0.14294470435415-0.00085837275937345*ctemp)*ctemp)}
+
+.param SAFE1={159.73910600274+(-0.72687460119008+0.0047887679578151*ctemp)*ctemp}
+.param SAFE2={(-4.1452546912797+(0.11522786169165-0.00037270848336913*ctemp)*ctemp)}
+
+.param SFE1={640.24300445696+(2.992804293304+0.017597225814978*ctemp)*ctemp}
+.param SFE2={(31.683174228435+(-0.30538302826583-0.0020421880124899*ctemp)*ctemp)}
+
+.param SW1={437.45469580258+(-0.50718245356219-0.003428862694157*ctemp)*ctemp}
+.param SW2={(-7.1437187823878+(0.03360788819495+5.5514802141361E-5*ctemp)*ctemp)}
+
+.param d1={5.1449803878558E-7+(-9.3974535897098E-9+2.534072631867E-10*ctemp)*ctemp}
+.param d2={(-7.2464512505011E-8+(1.3235850126352E-9-3.5691163829113E-11*ctemp)*ctemp)}
+
+RIN A1 func1 {esr2}
+*LIN t1 func1 {esl2}
+R0 B1 func1 {100*kTemp}
+R1 func1 21 {30*kTemp}
+C1 21 B1 {15u/kTemp}
+R2 func1 31 {1*kTemp}
+C2 31 B1 {30u/kTemp}
+R3 func1 41 {25m*kTemp}
+C3 41 B1 {30u/kTemp}
+R4 func1 51 {5m*kTemp}
+C4 51 B1 {25u/kTemp}
+R5 func1 61 {limit(esr/N*kTemp,esr/N,500m)}
+C5 61 B1 {limit(18u/kTemp,1n,18u)}
+R6 mid B1 100Meg
+C6 B2 mid {1/(2*pi*fg*100Meg)}
+E_B1 101 A2 Value={V(B1,mid)*V(B1,mid)}
+R7 int 101 100Meg
+C7 A2 int {1/(2*pi*fg*10*100Meg)}
+E_B2 vaceff A2 Value={limit(Sqrt(V(int,A2)),0.5,7.1)}
+R8 vaceff A2 100Meg
+
+G_B3 B1 B2 Value={N*0.000001*1.005977844436332*(
++ 4*V(aafe)*exp(2*(V(udc)+V(sw))/V(safe))/(V(safe)*(exp(2*V(udc)/V(safe))+exp(2*V(sw)/V(safe)))**2)
++ +
++ 4*V(afe)*exp(2*V(udc)/V(sfe))/(V(sfe)*(1+exp(2*V(udc)/V(sfe)))**2)
++ +
++ V(d)
++ )*ddt(V(B1,B2))}
+
+L1 B2 func2 {esl/N+esl2} Rser=0
+ROUT func2 A2 1u
+
+E_Udc udc 0 Value={limit(abs(V(mid,B2)),0,600)}
+E_Uac uac 0 Value={limit(V(vaceff,A2),0.5,7.1)}
+
+E_AAFE aafe 0 Value={AAFE1+V(uac)*AAFE2}
+E_AFE afe 0 Value={AFE1+V(uac)*AFE2}
+
+E_SAFE safe 0 Value={SAFE1+V(uac)*SAFE2}
+E_SFE sfe 0 Value={SFE1+V(uac)*SFE2}
+
+E_SW sw 0 Value={SW1+V(uac)*SW2}
+E_d d 0 Value={d1+V(uac)*d2}
+
+.ends
+
+
+
+
+
+***************************************************************************************************
+* FA10 500V                                                                                       *
+***************************************************************************************************
+
+
+.subckt B58035U5106M001_10uF_FA10_TD A1 A2
++ params: esr=4m, esl=2.5n, captemp=85, Vdc=0, fg=10, N=10, esr2=1.2m, esl2=0.75n
+
+.param ctemp={limit(captemp,-50,150)}
+
+.param kTemp={(((8.9327618384694+(-0.13925121326729+(0.00078032227731653-1.2400515923369E-6*ctemp)*ctemp)*ctemp)
++ +(-0.019869342032551+(0.0003845594568341+(4.1114559892308E-6-4.1018015228268E-8*ctemp)*ctemp)*ctemp)*limit(Vdc,0,600)
++ +(0.00028915422565848+(-1.764364879581E-6+(-5.8391684110952E-8+3.938630852853E-10*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**2)
++ +(-4.137712670883E-7+(7.9378286321372E-10+(9.9681486586663E-11-5.8695329536385E-13*ctemp)*ctemp)*ctemp)*(limit(Vdc,0,600)**3)
++ )/5.9198071239797*0.8)}
+
+.param AAFE1={47.137102909723+(0.27736662769875-0.0028147923392326*ctemp)*ctemp}
+.param AAFE2={(3.1632076714387+(0.017009870703669-0.00015014765932372*ctemp)*ctemp)}
+
+.param AFE1={207.90885785542+(1.4584398574322+0.0061258206142584*ctemp)*ctemp}
+.param AFE2={(16.021669202792+(-0.14294470435415-0.00085837275937345*ctemp)*ctemp)}
+
+.param SAFE1={159.73910600274+(-0.72687460119008+0.0047887679578151*ctemp)*ctemp}
+.param SAFE2={(-4.1452546912797+(0.11522786169165-0.00037270848336913*ctemp)*ctemp)}
+
+.param SFE1={640.24300445696+(2.992804293304+0.017597225814978*ctemp)*ctemp}
+.param SFE2={(31.683174228435+(-0.30538302826583-0.0020421880124899*ctemp)*ctemp)}
+
+.param SW1={437.45469580258+(-0.50718245356219-0.003428862694157*ctemp)*ctemp}
+.param SW2={(-7.1437187823878+(0.03360788819495+5.5514802141361E-5*ctemp)*ctemp)}
+
+.param d1={5.1449803878558E-7+(-9.3974535897098E-9+2.534072631867E-10*ctemp)*ctemp}
+.param d2={(-7.2464512505011E-8+(1.3235850126352E-9-3.5691163829113E-11*ctemp)*ctemp)}
+
+RIN A1 func1 {esr2}
+*LIN t1 func1 {esl2}
+R0 B1 func1 {100*kTemp}
+R1 func1 21 {30*kTemp}
+C1 21 B1 {120u/kTemp}
+R2 func1 31 {0.2*kTemp}
+C2 31 B1 {120u/kTemp}
+R3 func1 41 {3m*kTemp}
+C3 41 B1 {110u/kTemp}
+R4 func1 51 {1.8m*kTemp}
+C4 51 B1 {60u/kTemp}
+R5 func1 61 {limit(esr/N*kTemp,esr/N,500m)}
+C5 61 B1 {limit(45u/kTemp,1n,45u)}
+R6 mid B1 100Meg
+C6 B2 mid {1/(2*pi*fg*100Meg)}
+E_B1 101 A2 Value={V(B1,mid)*V(B1,mid)}
+R7 int 101 100Meg
+C7 A2 int {1/(2*pi*fg*10*100Meg)}
+E_B2 vaceff A2 Value={limit(Sqrt(V(int,A2)),0.5,7.1)}
+R8 vaceff A2 100Meg
+
+G_B3 B1 B2 Value={N*0.000001*1.005977844436332*(
++ 4*V(aafe)*exp(2*(V(udc)+V(sw))/V(safe))/(V(safe)*(exp(2*V(udc)/V(safe))+exp(2*V(sw)/V(safe)))**2)
++ +
++ 4*V(afe)*exp(2*V(udc)/V(sfe))/(V(sfe)*(1+exp(2*V(udc)/V(sfe)))**2)
++ +
++ V(d)
++ )*ddt(V(B1,B2))}
+
+L1 B2 func2 {esl/N+esl2} Rser=0
+ROUT func2 A2 1u
+
+E_Udc udc 0 Value={limit(abs(V(mid,B2)),0,600)}
+E_Uac uac 0 Value={limit(V(vaceff,A2),0.5,7.1)}
+
+E_AAFE aafe 0 Value={AAFE1+V(uac)*AAFE2}
+E_AFE afe 0 Value={AFE1+V(uac)*AFE2}
+
+E_SAFE safe 0 Value={SAFE1+V(uac)*SAFE2}
+E_SFE sfe 0 Value={SFE1+V(uac)*SFE2}
+
+E_SW sw 0 Value={SW1+V(uac)*SW2}
+E_d d 0 Value={d1+V(uac)*d2}
+
+.ends
+*
+*

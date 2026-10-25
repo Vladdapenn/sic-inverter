@@ -1,7 +1,7 @@
 (kicad_pcb
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(general
 		(thickness 1.81)
 		(legacy_teardrops no)
@@ -123,7 +123,20 @@
 		)
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
-		(tenting front back)
+		(tenting
+			(front yes)
+			(back yes)
+		)
+		(covering
+			(front no)
+			(back no)
+		)
+		(plugging
+			(front no)
+			(back no)
+		)
+		(capping no)
+		(filling no)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755f5ff)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
@@ -132,15 +145,12 @@
 			(usegerberattributes yes)
 			(usegerberadvancedattributes yes)
 			(creategerberjobfile yes)
-			(dashed_line_dash_ratio 12.000000)
-			(dashed_line_gap_ratio 3.000000)
+			(dashed_line_dash_ratio 12)
+			(dashed_line_gap_ratio 3)
 			(svgprecision 4)
 			(plotframeref no)
 			(mode 1)
 			(useauxorigin no)
-			(hpglpennumber 1)
-			(hpglpenspeed 20)
-			(hpglpendiameter 15.000000)
 			(pdf_front_fp_property_popups yes)
 			(pdf_back_fp_property_popups yes)
 			(pdf_metadata yes)
@@ -151,7 +161,6 @@
 			(psnegative no)
 			(psa4output no)
 			(plot_black_and_white yes)
-			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
@@ -165,11 +174,6 @@
 			(outputdirectory "")
 		)
 	)
-	(net 0 "")
-	(net 1 "HV+")
-	(net 2 "Auxiliary Midpoint")
-	(net 3 "HV-")
-	(net 4 "unconnected-(L1-Pad2)")
 	(footprint "Inverter Power Components:CAP_B58035U-FA10_TDK"
 		(layer "F.Cu")
 		(uuid "57a00632-ad33-42dd-8758-9cac7079d6bc")
@@ -228,6 +232,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 2.16916 -15.376995)
 			(end -2.16916 -15.376995)
@@ -424,7 +429,7 @@
 			(at -3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "5bf579c1-6ba5-4908-afb5-8a7ac239a47a")
 		)
@@ -432,13 +437,11 @@
 			(at 3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 3 "HV-")
+			(net "HV-")
 			(pintype "unspecified")
 			(uuid "5fa72f4e-2529-4ade-9d51-e4483864f4fd")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "39fc71b3-7be2-4161-ac98-a8fb21e6f8ee")
 			(hatch full 0.508)
@@ -446,7 +449,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -461,6 +463,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -528,6 +531,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 2.16916 -15.376995)
 			(end -2.16916 -15.376995)
@@ -724,7 +728,7 @@
 			(at -3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "42d5d7f1-a99a-47f1-90da-4ed8dfc4fffd")
 		)
@@ -732,13 +736,11 @@
 			(at 3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 3 "HV-")
+			(net "HV-")
 			(pintype "unspecified")
 			(uuid "8c9887c6-cd3c-4a46-9d35-ea9a0f7d9c88")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "08b921b6-bc6f-4565-8044-c34186f07902")
 			(hatch full 0.508)
@@ -746,7 +748,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -761,6 +762,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -828,6 +830,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.16916 15.376995)
 			(end 2.16916 15.376995)
@@ -1024,7 +1027,7 @@
 			(at -3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "9112a602-52f1-4fae-acf2-a3bfad225367")
 		)
@@ -1032,13 +1035,11 @@
 			(at 3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 1 "HV+")
+			(net "HV+")
 			(pintype "unspecified")
 			(uuid "fed5cf83-5fc0-4e43-af3b-e22f7124985d")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "735bde63-9d7b-4f51-a544-a1d4c4b611f9")
 			(hatch full 0.508)
@@ -1046,7 +1047,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -1061,6 +1061,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -1128,6 +1129,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.16916 15.376995)
 			(end 2.16916 15.376995)
@@ -1324,7 +1326,7 @@
 			(at -3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "607ddb82-f815-46e3-86db-f971a30ca128")
 		)
@@ -1332,13 +1334,11 @@
 			(at 3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 3 "HV-")
+			(net "HV-")
 			(pintype "unspecified")
 			(uuid "c4023d2e-c71e-439d-bcad-5b0dbdf122a3")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "2fdcaae7-0c06-400d-931f-3fe3b70e8e46")
 			(hatch full 0.508)
@@ -1346,7 +1346,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -1361,6 +1360,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -1428,6 +1428,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 2.16916 -15.376995)
 			(end -2.16916 -15.376995)
@@ -1624,7 +1625,7 @@
 			(at -3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "f58e8349-21cc-455a-b3a5-dde1f96b5089")
 		)
@@ -1632,13 +1633,11 @@
 			(at 3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 1 "HV+")
+			(net "HV+")
 			(pintype "unspecified")
 			(uuid "65d230c4-4992-4dc3-ba48-ab6fe133e04a")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "4948ce74-35ea-4d34-84fe-af90448cfa6e")
 			(hatch full 0.508)
@@ -1646,7 +1645,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -1661,6 +1659,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -1728,6 +1727,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.16916 15.376995)
 			(end 2.16916 15.376995)
@@ -1924,7 +1924,7 @@
 			(at -3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "95ab3dda-f3e0-48cf-8030-763a83544e0f")
 		)
@@ -1932,13 +1932,11 @@
 			(at 3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 3 "HV-")
+			(net "HV-")
 			(pintype "unspecified")
 			(uuid "e2289669-be03-4d6e-a81e-514e14468dad")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "dbdada4d-09aa-4570-bcc6-33e7661172db")
 			(hatch full 0.508)
@@ -1946,7 +1944,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -1961,6 +1958,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -2028,6 +2026,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 2.16916 -15.376995)
 			(end -2.16916 -15.376995)
@@ -2224,7 +2223,7 @@
 			(at -3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "82ce93cd-46bb-4746-a34a-21d3338a3f93")
 		)
@@ -2232,13 +2231,11 @@
 			(at 3.9243 0 180)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 1 "HV+")
+			(net "HV+")
 			(pintype "unspecified")
 			(uuid "21141cfa-a591-4124-b8f4-8844c827c194")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "2e5a8267-a83e-4946-a0f6-dd4159d90244")
 			(hatch full 0.508)
@@ -2246,7 +2243,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -2261,6 +2257,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -2329,6 +2326,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
 			(start -8.8 -12.4)
 			(end 17.2 4.7)
@@ -2369,7 +2367,7 @@
 			(drill oval 6 3.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "90eb7298-4945-4383-83bd-4e5690304953")
@@ -2380,7 +2378,7 @@
 			(drill oval 6 3.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 4 "unconnected-(L1-Pad2)")
+			(net "unconnected-(L1-Pad2)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "6e126b8e-7ecf-40d0-805f-e0e15eb3301c")
@@ -2445,6 +2443,7 @@
 		(sheetname "/")
 		(sheetfile "Capacitor Board.kicad_sch")
 		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.16916 15.376995)
 			(end 2.16916 15.376995)
@@ -2641,7 +2640,7 @@
 			(at -3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 2 "Auxiliary Midpoint")
+			(net "Auxiliary Midpoint")
 			(pintype "unspecified")
 			(uuid "8cc0cd77-1f7d-4121-88c1-c302dced4fab")
 		)
@@ -2649,13 +2648,11 @@
 			(at 3.9243 0)
 			(size 2.8448 30.988001)
 			(layers "F.Cu" "F.Mask" "F.Paste")
-			(net 1 "HV+")
+			(net "HV+")
 			(pintype "unspecified")
 			(uuid "f9c16812-b53b-42ea-9cf0-45398ae155ce")
 		)
 		(zone
-			(net 0)
-			(net_name "")
 			(layer "F.Cu")
 			(uuid "b4fefb77-69b9-4198-9ade-1f5e77f47e8b")
 			(hatch full 0.508)
@@ -2663,7 +2660,6 @@
 				(clearance 0)
 			)
 			(min_thickness 0.254)
-			(filled_areas_thickness no)
 			(keepout
 				(tracks not_allowed)
 				(vias not_allowed)
@@ -2678,6 +2674,7 @@
 			(fill
 				(thermal_gap 0.508)
 				(thermal_bridge_width 0.508)
+				(island_removal_mode 0)
 			)
 			(polygon
 				(pts
@@ -2687,29 +2684,122 @@
 		)
 		(embedded_fonts no)
 	)
-	(gr_rect
-		(start 64.5958 35.7)
-		(end 67.5 74.3)
+	(gr_poly
+		(pts
+			(xy 61.8 87.1) (xy 64.5 87.1) (xy 61.8 84.4)
+		)
 		(stroke
-			(width 0.2)
+			(width 0.1)
 			(type solid)
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 1)
-		(uuid "13eca4b4-da48-4c06-aaa3-f2ae5f0f0f20")
+		(net "unconnected-(L1-Pad2)")
+		(uuid "e4cd083c-51cf-4450-9c61-293212629a05")
 	)
-	(gr_rect
-		(start 108.5 35.7)
-		(end 111.4042 74.3)
+	(gr_poly
+		(pts
+			(xy 61.8 92.3) (xy 61.8 95) (xy 64.5 92.3)
+		)
 		(stroke
 			(width 0.2)
 			(type solid)
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 1)
-		(uuid "1638a924-8092-496a-993b-8faf94d66d96")
+		(net "unconnected-(L1-Pad2)")
+		(uuid "d23ed1ea-e93b-4c7b-aeab-4523a94fd0e5")
+	)
+	(gr_poly
+		(pts
+			(xy 67.5 131.7) (xy 67.5 128.7) (xy 70.5 131.7)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV-")
+		(uuid "40072207-3b62-440c-8dcd-48da296d979a")
+	)
+	(gr_poly
+		(pts
+			(xy 75.1 84.8) (xy 75.1 86.3) (xy 73.6 84.8)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "19176cda-8fb8-4dc9-ab03-5835cfa732d2")
+	)
+	(gr_poly
+		(pts
+			(xy 79.5 77.1) (xy 79.5 74.1) (xy 82.5 77.1)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "6ad09f76-58bd-464b-8a12-4c456e3bd9c6")
+	)
+	(gr_poly
+		(pts
+			(xy 84.5 131.7) (xy 84.5 128.7) (xy 81.5 131.7)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV-")
+		(uuid "86a0306a-543b-4648-9a08-271b18fcdc43")
+	)
+	(gr_poly
+		(pts
+			(xy 96.5 77.1) (xy 96.5 74.1) (xy 93.5 77.1)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "444e1ab2-7504-458a-917c-d528fad0f16a")
+	)
+	(gr_poly
+		(pts
+			(xy 96.5 98.1) (xy 96.5 95.1) (xy 93.5 95.1)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "afe3386c-cd56-4214-8796-76857f438c5a")
+	)
+	(gr_poly
+		(pts
+			(xy 108.5 131.7) (xy 108.5 128.7) (xy 105.5 131.7)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV-")
+		(uuid "2590ce16-92aa-4b4c-bc26-a298a91d78a1")
 	)
 	(gr_poly
 		(pts
@@ -2721,92 +2811,47 @@
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 2)
+		(net "Auxiliary Midpoint")
 		(uuid "2a3a2cb1-739f-4157-a40d-9fadd0955210")
 	)
-	(gr_rect
-		(start 72.4958 93.775)
-		(end 79.5 128.9)
+	(gr_poly
+		(pts
+			(xy 91.5021 131.7) (xy 91.5021 128.7) (xy 94.5 131.6979) (xy 94.5 131.7)
+		)
 		(stroke
 			(width 0.2)
 			(type solid)
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 2)
-		(uuid "2b3c32a9-4ccf-4c60-998f-5fa687f5ca11")
+		(net "HV-")
+		(uuid "afec9a55-c1b6-4ec3-91d6-579cc4d5a4d9")
 	)
-	(gr_rect
-		(start 64.5958 97.9)
-		(end 67.5 136.5)
+	(gr_poly
+		(pts
+			(xy 108.5 74.3) (xy 106.3 76.8) (xy 106.3 79.3) (xy 111.4042 79.3) (xy 111.4042 74.3)
+		)
 		(stroke
 			(width 0.2)
 			(type solid)
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 3)
-		(uuid "4182e3d4-ebcc-429f-9a11-3fd24a34c3ce")
+		(net "HV+")
+		(uuid "513370f2-c277-4488-9eb0-0992f9e024bf")
 	)
-	(gr_rect
-		(start 64.5 131.6)
-		(end 111.5 136.6)
-		(stroke
-			(width 0)
-			(type solid)
+	(gr_poly
+		(pts
+			(xy 111.4042 97.9) (xy 111.4042 92.9) (xy 106.3 92.9) (xy 106.3 95.4) (xy 108.5 97.9)
 		)
-		(fill yes)
-		(layer "F.Cu")
-		(net 3)
-		(uuid "42e0fe29-06a2-46e9-a863-4a9ce5e4e784")
-	)
-	(gr_rect
-		(start 84.4979 97.9)
-		(end 91.5021 136.5)
 		(stroke
 			(width 0.2)
 			(type solid)
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 3)
-		(uuid "4c69bea7-ecb8-4216-8430-71c146ad4ae5")
-	)
-	(gr_rect
-		(start 75 77)
-		(end 103.6 95.2)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill yes)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "6a277e56-d533-4f70-8959-6784a81b19fb")
-	)
-	(gr_rect
-		(start 55.1 87)
-		(end 67.1 92.4)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill yes)
-		(layer "F.Cu")
-		(net 4)
-		(uuid "7227c779-0619-4a48-9fab-949677890850")
-	)
-	(gr_rect
-		(start 96.5 43.3)
-		(end 103.5042 128.9)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill yes)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "992e9e1e-5d49-48ff-8175-42ff72f2f69b")
+		(net "HV-")
+		(uuid "8b374aaa-5090-40a8-acc1-cb06e69f72a6")
 	)
 	(gr_rect
 		(start 54.8 43.3)
@@ -2817,8 +2862,20 @@
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 4)
+		(net "unconnected-(L1-Pad2)")
 		(uuid "a175c9d4-60f3-4b11-a333-d6d60bec213b")
+	)
+	(gr_rect
+		(start 55.1 87)
+		(end 67.1 92.4)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "unconnected-(L1-Pad2)")
+		(uuid "7227c779-0619-4a48-9fab-949677890850")
 	)
 	(gr_rect
 		(start 64.5 35.6)
@@ -2829,8 +2886,56 @@
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 1)
+		(net "HV+")
 		(uuid "bee57a30-8d77-4748-b26c-bc1d485d1100")
+	)
+	(gr_rect
+		(start 64.5 131.6)
+		(end 111.5 136.6)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV-")
+		(uuid "42e0fe29-06a2-46e9-a863-4a9ce5e4e784")
+	)
+	(gr_rect
+		(start 64.5958 35.7)
+		(end 67.5 74.3)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV+")
+		(uuid "13eca4b4-da48-4c06-aaa3-f2ae5f0f0f20")
+	)
+	(gr_rect
+		(start 64.5958 97.9)
+		(end 67.5 136.5)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV-")
+		(uuid "4182e3d4-ebcc-429f-9a11-3fd24a34c3ce")
+	)
+	(gr_rect
+		(start 72.4958 93.775)
+		(end 79.5 128.9)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "2b3c32a9-4ccf-4c60-998f-5fa687f5ca11")
 	)
 	(gr_rect
 		(start 72.5 43.3)
@@ -2841,8 +2946,20 @@
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 2)
+		(net "Auxiliary Midpoint")
 		(uuid "d0ebd345-415d-41be-975b-8daee99619e6")
+	)
+	(gr_rect
+		(start 75 77)
+		(end 103.6 95.2)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "6a277e56-d533-4f70-8959-6784a81b19fb")
 	)
 	(gr_rect
 		(start 84.4979 35.7)
@@ -2853,8 +2970,44 @@
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 1)
+		(net "HV+")
 		(uuid "eaf78210-7282-40e5-abde-8cab941f5ad5")
+	)
+	(gr_rect
+		(start 84.4979 97.9)
+		(end 91.5021 136.5)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV-")
+		(uuid "4c69bea7-ecb8-4216-8430-71c146ad4ae5")
+	)
+	(gr_rect
+		(start 96.5 43.3)
+		(end 103.5042 128.9)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "Auxiliary Midpoint")
+		(uuid "992e9e1e-5d49-48ff-8175-42ff72f2f69b")
+	)
+	(gr_rect
+		(start 108.5 35.7)
+		(end 111.4042 74.3)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(net "HV+")
+		(uuid "1638a924-8092-496a-993b-8faf94d66d96")
 	)
 	(gr_rect
 		(start 108.5 97.9)
@@ -2865,19 +3018,8 @@
 		)
 		(fill yes)
 		(layer "F.Cu")
-		(net 3)
+		(net "HV-")
 		(uuid "f4588cb3-112e-4a1f-b406-e2bf7a04ccbe")
-	)
-	(gr_rect
-		(start 64.5 129.3)
-		(end 111.5 131.3)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill yes)
-		(layer "F.SilkS")
-		(uuid "0a3ed3c0-7708-4b90-a73b-0f3521e6ae07")
 	)
 	(gr_rect
 		(start 62.2 40.9)
@@ -2889,28 +3031,6 @@
 		(fill yes)
 		(layer "F.SilkS")
 		(uuid "20942b4d-af07-40c7-bc5c-94f62cf941a8")
-	)
-	(gr_rect
-		(start 64.5 95.5)
-		(end 111.5 97.5)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill yes)
-		(layer "F.SilkS")
-		(uuid "322a5410-ebaf-4eca-a1c9-35ec4e4dcf75")
-	)
-	(gr_rect
-		(start 64.5 74.7)
-		(end 111.5 76.7)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill yes)
-		(layer "F.SilkS")
-		(uuid "665e86c3-c295-4e14-9729-73ad370d9ad4")
 	)
 	(gr_rect
 		(start 62.2 95.5)
@@ -2935,8 +3055,63 @@
 		(uuid "f3fc9930-fdb0-482b-a267-12fe99b39018")
 	)
 	(gr_rect
-		(start 42.8 34.8)
-		(end 112.5 124.4)
+		(start 64.5 74.7)
+		(end 105.9 76.7)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "665e86c3-c295-4e14-9729-73ad370d9ad4")
+	)
+	(gr_rect
+		(start 64.5 95.5)
+		(end 105.9 97.5)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "322a5410-ebaf-4eca-a1c9-35ec4e4dcf75")
+	)
+	(gr_rect
+		(start 64.5 129.3)
+		(end 111.5 131.3)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "0a3ed3c0-7708-4b90-a73b-0f3521e6ae07")
+	)
+	(gr_rect
+		(start 103.9 74.7)
+		(end 105.9 97.5)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "2618545c-5c43-4cf0-b907-67f2fac6336f")
+	)
+	(gr_rect
+		(start 111.8 35.6)
+		(end 115.8 136.6)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "7eadd5e9-161c-4680-96ce-85bf87dc30d5")
+	)
+	(gr_rect
+		(start 53.7 34.6)
+		(end 121.3 137.6)
 		(stroke
 			(width 0.05)
 			(type default)
@@ -2944,82 +3119,6 @@
 		(fill no)
 		(layer "Edge.Cuts")
 		(uuid "7239a4a6-0697-4970-adc7-70f860a31d96")
-	)
-	(dimension
-		(type orthogonal)
-		(layer "Dwgs.User")
-		(uuid "3364c761-0d8b-45f4-93d9-339487b7c454")
-		(pts
-			(xy 112.5 34.8) (xy 63.5 34.8)
-		)
-		(height -6.7)
-		(orientation 0)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 0)
-			(precision 4)
-			(suppress_zeroes yes)
-		)
-		(style
-			(thickness 0.1)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(arrow_direction outward)
-			(extension_height 0.58642)
-			(extension_offset 0.5)
-			(keep_text_aligned yes)
-		)
-		(gr_text "49"
-			(at 88 26.95 0)
-			(layer "Dwgs.User")
-			(uuid "3364c761-0d8b-45f4-93d9-339487b7c454")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-	)
-	(dimension
-		(type orthogonal)
-		(layer "Dwgs.User")
-		(uuid "a83e79ed-9ec8-481e-89ca-6e2972a1d218")
-		(pts
-			(xy 112 31.3) (xy 112.5 137.5)
-		)
-		(height 6.8)
-		(orientation 1)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 0)
-			(precision 4)
-			(suppress_zeroes yes)
-		)
-		(style
-			(thickness 0.1)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(arrow_direction outward)
-			(extension_height 0.58642)
-			(extension_offset 0.5)
-			(keep_text_aligned yes)
-		)
-		(gr_text "106.2"
-			(at 117.65 84.4 90)
-			(layer "Dwgs.User")
-			(uuid "a83e79ed-9ec8-481e-89ca-6e2972a1d218")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 	)
 	(group ""
 		(uuid "79d21c79-331d-4201-8bf5-b5283650cf6b")
